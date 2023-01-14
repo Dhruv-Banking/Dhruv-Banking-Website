@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dhruv Banking | Login</title>
+    <link rel="stylesheet" href="../css/login.css" />
+    <script
+      src="https://kit.fontawesome.com/866b8b01f2.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="icon" href="../images/Dhruv_Banking-Logo.png" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header>
+      <!--- NAVIGATION -->
+      <nav>
+        <a href="/" class="DHB__Header-Nav_Icon"> Dhruv Banking™️ </a>
+
+        <ul>
+          <li><a href="./register.html">Register</a></li>
+          <li>
+            <a class="DHB__Header-Nav_Lock" href="#"
+              >Login <i class="fa-solid fa-lock"></i
+            ></a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- MAIN -->
+    <main>
+      <div id="loader"></div>
+      <form onsubmit="return false">
+        <h2>Login!</h2>
+
+        <label for="Username">Username:</label>
+        <input
+          type="text"
+          name="Username"
+          id="Username"
+          placeholder="Enter Username Please"
+          required
+        />
+
+        <label for="Password">Password</label>
+        <input
+          type="password"
+          name="Password"
+          id="Password"
+          placeholder="Enter Password Please"
+          required
+        />
+
+        <input type="submit" id="Submit" />
+      </form>
+    </main>
+
+    <footer>
+      <a href="/forgotPassword">Forgot Password?</a>
+    </footer>
+
+    <!-- <script src="../static/js/getToken.js"></script>
+    <script src="../static/js/loginUser.js"></script> -->
+  </body>
+</html>
