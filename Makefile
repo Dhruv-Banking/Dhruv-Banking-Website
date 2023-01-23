@@ -1,1 +1,5 @@
-dev: ; @npm run dev
+dev:
+	@npm run dev
+
+_build:
+	@npm run build
