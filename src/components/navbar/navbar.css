@@ -1,0 +1,66 @@
+nav {
+  height: 125px;
+  width: 100%;
+  z-index: 1;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--grey);
+}
+
+nav .DHB__Header-Nav_Icon {
+  text-decoration: none;
+  color: var(--white);
+  font-size: 2rem;
+  font-weight: bold;
+  margin-left: 1rem;
+  transition: all 0.3s ease-in-out;
+}
+
+nav .DHB__Header-Nav_Icon:hover {
+  color: var(--blue);
+}
+
+nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  margin: 1rem;
+  font-size: 1.3rem;
+}
+
+nav ul li a {
+  color: var(--white);
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  border: 2px solid white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+}
+
+nav ul li a:hover {
+  color: var(--blue);
+  border-color: var(--blue);
+}
+
+nav ul .DHB__Header-Nav_Lock {
+  border: 2px solid var(--white);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+nav ul .DHB__Header-Nav_Lock:hover {
+  border: 2px solid var(--blue);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
