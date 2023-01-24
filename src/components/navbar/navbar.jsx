@@ -1,8 +1,11 @@
 import "./navbar.css";
 
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Navbar(props) {
+  let [icon, setIcon] = useState("fa-solid fa-lock");
+
   return (
     <nav>
       <Link to="/" className="DHB__Header-Nav_Icon">
@@ -15,7 +18,7 @@ export default function Navbar(props) {
         </li>
         <li>
           <Link className="DHB__Header-Nav_Lock" to="/login">
-            Login <i className="fa-solid fa-lock"></i>
+            Login <i className={icon}></i>
           </Link>
         </li>
       </ul>

@@ -1,3 +1,52 @@
+#loader-visible {
+  visibility: visible;
+  left: 47%;
+  top: 50%;
+  position: absolute;
+  border: 16px solid var(--white);
+  border-radius: 50%;
+  z-index: 100;
+  border-top: 16px solid var(--blue);
+  width: 125px;
+  height: 125px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+#loader-hidden {
+  visibility: hidden;
+  left: 47%;
+  top: 50%;
+  position: absolute;
+  border: 16px solid var(--white);
+  border-radius: 50%;
+  z-index: 100;
+  border-top: 16px solid var(--blue);
+  width: 125px;
+  height: 125px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .DHB__Login-Form {
   display: flex;
   justify-content: center;
@@ -86,4 +135,14 @@
   bottom: 1rem;
   text-decoration: none;
   color: var(--blue);
+}
+
+.DHB__Login-ErrorFalse {
+  color: red;
+  visibility: hidden;
+}
+
+.DHB__Login-ErrorTrue {
+  color: red;
+  visibility: visible;
 }
