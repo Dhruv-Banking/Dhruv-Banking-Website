@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 
 import Navbar from "../components/navbar/navbar";
+import LoginMain from "../components/LoginMain/loginMain";
 
 export default function Login() {
   useEffect(() => {
@@ -10,6 +11,7 @@ export default function Login() {
   return (
     <>
       <Navbar />
+      <LoginMain />
     </>
   );
 }
