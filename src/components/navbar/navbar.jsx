@@ -15,7 +15,7 @@ function Navbar(props) {
         </li>
         <li>
           <Link className="DHB__Header-Nav_Lock" to="/login">
-            Login<i className="fa-solid fa-lock"></i>
+            Login <i className="fa-solid fa-lock"></i>
           </Link>
         </li>
       </ul>

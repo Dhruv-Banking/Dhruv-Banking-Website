@@ -1,0 +1,18 @@
+.DHB_Splash {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("../../assets/bank.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 500px;
+  height: 60vh;
+}
+
+.DHB_Splash > h1 {
+  font-size: 4rem;
+  color: var(--white);
+}
