@@ -1,10 +1,9 @@
 import "./navbar.css";
 
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Navbar(props) {
-  let [icon, setIcon] = useState("fa-solid fa-lock");
+  const location = useLocation();
 
   return (
     <nav>
@@ -14,12 +13,36 @@ export default function Navbar(props) {
 
       <ul>
         <li>
-          <Link to="/register">Register</Link>
+          {sessionStorage.getItem("refresh") === null ? (
+            <Link to="/register">Register</Link>
+          ) : null}
         </li>
         <li>
-          <Link className="DHB__Header-Nav_Lock" to="/login">
-            Login <i className={icon}></i>
-          </Link>
+          {(() => {
+            if (
+              location.pathname === "/profile" ||
+              sessionStorage.getItem("refresh") !== null
+            ) {
+              return (
+                <>
+                  <Link className="DHB__Header-Nav_Lock" to="/logout">
+                    Logout <i className="fa-solid fa-lock"></i>
+                  </Link>
+                  <Link className="DHB__Header-Nav_Lock" to="/profile">
+                    Profile
+                  </Link>
+                </>
+              );
+            } else {
+              return (
+                <>
+                  <Link className="DHB__Header-Nav_Lock" to="/login">
+                    Login <i className="fa-solid fa-unlock"></i>
+                  </Link>
+                </>
+              );
+            }
+          })()}
         </li>
       </ul>
     </nav>
