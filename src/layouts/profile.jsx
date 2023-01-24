@@ -16,16 +16,7 @@ export default function Profile() {
   return (
     <>
       <Navbar />
-      <MoneyShow
-        img={Checkings}
-        account="Checkings"
-        money={sessionStorage.getItem("checkings")}
-      />
-      <MoneyShow
-        img={Savings}
-        account="Savings"
-        money={sessionStorage.getItem("savings")}
-      />
+      <MoneyShow />
       <Footer />
     </>
   );
