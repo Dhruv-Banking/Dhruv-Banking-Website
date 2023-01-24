@@ -1,0 +1,54 @@
+.DHB__Register-Form {
+  color: var(--blue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 30%;
+  background-color: white;
+  height: 65vh;
+  margin-top: 11vh;
+  margin-left: 35%;
+  box-shadow: 0 15px 30px 0 rgb(0 47 107 / 10%);
+}
+
+.DHB__Register-Form h2 {
+  font-size: 2.5rem;
+  margin: 0.5rem;
+}
+
+.DHB__Register-Form label {
+  margin-top: 0.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.DHB__Register-Form input {
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-radius: 0 5px;
+  border-bottom: var(--blue) solid 2.5px;
+  width: 70%;
+  color: var(--blue);
+}
+
+.DHB__Register-Form input::placeholder {
+  opacity: 0.5;
+  color: var(--blue);
+}
+
+.DHB__Register-Form #Submit {
+  width: 70%;
+  margin: 1rem 0 1rem 0;
+  height: 2rem;
+  background: transparent;
+  border: var(--blue) solid 2px;
+  border-radius: 5px;
+  color: var(--blue);
+  transition: all 0.3s;
+}
+
+.DHB__Register-Form #Submit:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}

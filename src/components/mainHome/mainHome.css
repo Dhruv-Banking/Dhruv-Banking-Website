@@ -1,15 +1,10 @@
-main {
-  width: 100%;
-  margin: 10rem 0;
-}
-
 .DHB__Main {
   padding: 0;
   width: 70%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-left: 15%;
+  margin: 7rem 0 7rem 15%;
 }
 
 .DHB__Main-Left {
