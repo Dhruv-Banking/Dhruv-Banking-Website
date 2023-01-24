@@ -47,7 +47,32 @@ export default function LoginMain() {
         sessionStorage.setItem("token", result.accessToken);
         sessionStorage.setItem("refresh", result.refreshToken);
         setLoader("loader-hidden");
-        navigate("/profile");
+
+        var myHeaders = new Headers();
+        myHeaders.append(
+          "Authorization",
+          `Bearer ${sessionStorage.getItem("token")}`
+        );
+
+        var requestOptions = {
+          method: "GET",
+          headers: myHeaders,
+          redirect: "follow",
+        };
+
+        fetch(
+          `${API_URL}dhruvbanking/get/getSpecificUser?username=${data.username}`,
+          requestOptions
+        )
+          .then((response) => response.json())
+          .then((result) => {
+            sessionStorage.setItem("username", result.username);
+            sessionStorage.setItem("checkings", result.checkings);
+            sessionStorage.setItem("savings", result.savings);
+            sessionStorage.setItem("transactions", result.transactions);
+            navigate("/profile");
+          })
+          .catch((error) => console.log("error", error));
       })
       .catch((error) => {
         alert("An error has occoured");
