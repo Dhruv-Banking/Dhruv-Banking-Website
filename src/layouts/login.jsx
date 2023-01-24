@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 import Navbar from "../components/navbar/navbar";
-import LoginMain from "../components/LoginMain/loginMain";
+import LoginMain from "../components/loginMain/loginMain";
 
 export default function Login() {
   useEffect(() => {
