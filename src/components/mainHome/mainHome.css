@@ -1,0 +1,54 @@
+main {
+  width: 100%;
+  margin: 10rem 0;
+}
+
+.DHB__Main {
+  padding: 0;
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 15%;
+}
+
+.DHB__Main-Left {
+  width: 45%;
+  padding: 1rem;
+  text-align: center;
+}
+
+.DHB__Main-Left > h2 {
+  font-size: 3rem;
+  margin: 1rem;
+}
+
+.DHB__Main-Right {
+  background-image: url("../../assets/bank.png");
+  width: 45%;
+  aspect-ratio: 1/0.7;
+  padding: 1rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 2rem;
+}
+
+.DHB__Main-Grey1 {
+  width: 250px;
+  height: 250px;
+  border-radius: 2rem;
+  margin-left: -100px;
+  position: relative;
+  top: -10rem;
+  left: -2rem;
+}
+
+.DHB__Main-Grey2 {
+  width: 250px;
+  height: 250px;
+  border-radius: 2rem;
+  position: relative;
+  right: -15rem;
+  top: 14rem;
+}
