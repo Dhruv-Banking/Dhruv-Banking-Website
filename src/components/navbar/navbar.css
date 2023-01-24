@@ -55,12 +55,10 @@ nav ul li a:hover {
 
 nav ul .DHB__Header-Nav_Lock {
   border: 2px solid var(--white);
+  padding: 0.5rem 1.5rem;
   border-radius: 0.5rem;
-  padding: 0.5rem;
 }
 
 nav ul .DHB__Header-Nav_Lock:hover {
   border: 2px solid var(--blue);
-  border-radius: 0.5rem;
-  padding: 0.5rem;
 }
