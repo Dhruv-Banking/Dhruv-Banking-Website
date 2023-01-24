@@ -2,7 +2,7 @@ import "./footer.css";
 
 import { Link } from "react-router-dom";
 
-function Footer(props) {
+export default function Footer(props) {
   return (
     <footer>
       <div className="DHB__Footer-Links">
@@ -81,5 +81,3 @@ function Footer(props) {
     </footer>
   );
 }
-
-export default Footer;

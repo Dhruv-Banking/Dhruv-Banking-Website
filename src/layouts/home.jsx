@@ -5,7 +5,7 @@ import SplashHome from "../components/splashHome/SplashHome";
 import MainHome from "../components/mainHome/mainHome";
 import Footer from "../components/footer/footer";
 
-function Home() {
+export default function Home() {
   useEffect(() => {
     document.title = "Home | Dhruv Banking";
   });
@@ -19,5 +19,3 @@ function Home() {
     </>
   );
 }
-
-export default Home;

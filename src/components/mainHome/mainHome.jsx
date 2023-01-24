@@ -2,7 +2,7 @@ import "./mainHome.css";
 
 import Grey from "../../assets/grey.png";
 
-function MainHome() {
+export default function MainHome() {
   return (
     <>
       <main>
@@ -30,5 +30,3 @@ function MainHome() {
     </>
   );
 }
-
-export default MainHome;

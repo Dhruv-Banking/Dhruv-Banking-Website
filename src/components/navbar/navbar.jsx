@@ -2,7 +2,7 @@ import "./navbar.css";
 
 import { Link } from "react-router-dom";
 
-function Navbar(props) {
+export default function Navbar(props) {
   return (
     <nav>
       <Link to="#" className="DHB__Header-Nav_Icon">
@@ -22,5 +22,3 @@ function Navbar(props) {
     </nav>
   );
 }
-
-export default Navbar;
