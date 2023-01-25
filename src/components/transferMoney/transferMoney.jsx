@@ -1,36 +1,136 @@
 import "./transferMoney.css";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 import Arrow from "../../assets/arrow.png";
+let API_URL = "https://banking-api.dhruvrayat.com/";
+
+function relodValues() {
+  var myHeaders = new Headers();
+  myHeaders.append(
+    "Authorization",
+    `Bearer ${sessionStorage.getItem("token")}`
+  );
+
+  var requestOptions = {
+    method: "GET",
+    headers: myHeaders,
+    redirect: "follow",
+  };
+
+  fetch(
+    `${API_URL}dhruvbanking/get/getSpecificUser?username=${sessionStorage.getItem(
+      "username"
+    )}`,
+    requestOptions
+  )
+    .then((response) => response.json())
+    .then((result) => {
+      sessionStorage.setItem("username", result.username);
+      sessionStorage.setItem("checkings", result.checkings);
+      sessionStorage.setItem("savings", result.savings);
+      sessionStorage.setItem("transactions", result.transactions);
+    })
+    .catch((error) => console.log("error", error));
+}
 
 export default function TransferMoney() {
+  let amount = useRef("");
+  let [counter, setCounter] = useState(0);
+  let [errorData, setErrorData] = useState();
+  let [errorClass, setErrorClass] = useState(
+    "DHR__Main-Transfer_Money_sameAccount-ErrorFalse"
+  );
+
   const getInitialStateFrom = () => {
     const valueFrom = "Checkings";
     return valueFrom;
   };
 
-  const [valueFrom, setValueFrom] = useState(getInitialStateFrom);
-  let [errorClass, setErrorClass] = useState(
-    "DHR__Main-Transfer_Money_sameAccount-ErrorFalse"
-  );
-  let [counter, setCounter] = useState(0);
-  let [errorData, setErrorData] = useState();
+  const getInitialStateTo = () => {
+    const valueTo = "Savings";
+    return valueTo;
+  };
 
   const handleChangeFrom = (e) => {
     setValueFrom(e.target.value);
   };
 
-  const getInitialStateTo = () => {
-    const valueFrom = "Savings";
-    return valueFrom;
-  };
-
-  const [valueTo, setValueTo] = useState(getInitialStateTo);
-
   const handleChangeTo = (e) => {
     setValueTo(e.target.value);
   };
+
+  const [valueFrom, setValueFrom] = useState(getInitialStateFrom);
+  const [valueTo, setValueTo] = useState(getInitialStateTo);
+
+  let accessToken = () => {
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+      token: `${sessionStorage.getItem("refresh")}`,
+    });
+
+    var requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+    };
+
+    fetch(`${API_URL}dhruvbanking/login/refreshToken`, requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        if (result.accessToken === undefined) {
+          setErrorClass("DHR__Main-Transfer_Money_sameAccount-ErrorTrue");
+          setCounter((counter += 1));
+          setErrorData("Error querying access token, please try again leter");
+          return;
+        }
+
+        console.log(result.accessToken);
+
+        sessionStorage.setItem("token", result.accessToken);
+      })
+      .catch((error) => console.log("error", error));
+  };
+
+  let transferMoneyCheckingsToSavings = () => {
+    let transferAmount = parseInt(amount.current.value);
+    var myHeaders = new Headers();
+    myHeaders.append(
+      "Authorization",
+      `Bearer ${sessionStorage.getItem("token")}`
+    );
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+      username: `${sessionStorage.getItem("username")}`,
+      amount: transferAmount,
+    });
+
+    var requestOptions = {
+      method: "PUT",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+    };
+
+    fetch(`${API_URL}dhruvbanking/put/checkingsToSavings`, requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        if (
+          result.detail ===
+          `Successfully transered ${transferAmount} from checkings to savings`
+        ) {
+          relodValues();
+          alert(result.detail);
+          window.location.reload(false);
+        }
+      })
+      .catch((error) => console.log("error", error));
+  };
+  let transferMoneySavingsToCheckings = () => {};
 
   return (
     <>
@@ -41,7 +141,6 @@ export default function TransferMoney() {
           id="DHR__Main-Transfer_Money_sameAccount"
           onSubmit={(e) => {
             e.preventDefault();
-            console.log(valueFrom, valueTo);
 
             if (valueFrom === valueTo) {
               setErrorClass("DHR__Main-Transfer_Money_sameAccount-ErrorTrue");
@@ -50,11 +149,13 @@ export default function TransferMoney() {
               return;
             }
 
+            accessToken();
+
             if (valueFrom === "Checkings") {
-              alert("e");
-            } else {
-              alert("fuck");
+              return transferMoneyCheckingsToSavings();
             }
+
+            return transferMoneySavingsToCheckings();
           }}
           className="DHR__Main-Transfer_Money_sameAccount"
         >
@@ -78,6 +179,7 @@ export default function TransferMoney() {
             id="Amount"
             type="number"
             step="1"
+            ref={amount}
             placeholder="Enter Amount to Send"
             name="name"
             min="1"

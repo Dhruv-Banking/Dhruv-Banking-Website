@@ -15,12 +15,19 @@ export default function MoneyShow() {
     <>
       <div className={`DHB__Profile-MoneyShow DHB__Account_Checkings`}>
         <h2>Checkings</h2>
-        <p>${sessionStorage.getItem("checkings")}</p>
+        <p>
+          $
+          {parseInt(sessionStorage.getItem("checkings")).toLocaleString(
+            "en-US"
+          )}
+        </p>
       </div>
 
       <div className={`DHB__Profile-MoneyShow DHB__Account_Savings`}>
         <h2>Savings</h2>
-        <p>${sessionStorage.getItem("savings")}</p>
+        <p>
+          ${parseInt(sessionStorage.getItem("savings")).toLocaleString("en-US")}
+        </p>
       </div>
     </>
   );
