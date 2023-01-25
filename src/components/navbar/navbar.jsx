@@ -26,7 +26,7 @@ export default function Navbar(props) {
               return (
                 <>
                   <Link className="DHB__Header-Nav_Lock" to="/profile">
-                    Profile
+                    Profile <i class="fa-solid fa-user"></i>
                   </Link>
                   <Link className="DHB__Header-Nav_Lock" to="/logout">
                     Logout <i className="fa-solid fa-lock"></i>
