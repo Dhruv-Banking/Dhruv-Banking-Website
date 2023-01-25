@@ -88,8 +88,6 @@ export default function TransferMoney() {
           return;
         }
 
-        console.log(result.accessToken);
-
         sessionStorage.setItem("token", result.accessToken);
       })
       .catch((error) => console.log("error", error));
@@ -130,7 +128,46 @@ export default function TransferMoney() {
       })
       .catch((error) => console.log("error", error));
   };
-  let transferMoneySavingsToCheckings = () => {};
+
+  let transferMoneySavingsToCheckings = () => {
+    let transferAmount = parseInt(amount.current.value);
+    var myHeaders = new Headers();
+    myHeaders.append(
+      "Authorization",
+      `Bearer ${sessionStorage.getItem("token")}`
+    );
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+      username: `${sessionStorage.getItem("username")}`,
+      amount: transferAmount,
+    });
+
+    var requestOptions = {
+      method: "PUT",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+    };
+
+    fetch(`${API_URL}dhruvbanking/put/savingsToCheckings`, requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        if (
+          result.detail ===
+          `Successfully transered ${transferAmount} from savings to checkings`
+        ) {
+          relodValues();
+          alert(result.detail);
+          window.location.reload(false);
+        }
+        console.log(result.detail);
+        console.log(
+          `Successfully transered ${transferAmount} from savings to checkings`
+        );
+      })
+      .catch((error) => console.log("error", error));
+  };
 
   return (
     <>
