@@ -1,0 +1,86 @@
+/* -- TRANSFER MONEY -- */
+.DHR__Main-Transfer_Money {
+  width: 80%;
+  margin: 1rem 0rem 1rem 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.DHR__Main-Transfer_Money_sameAccount > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.DHR__Main-Transfer_Money_sameAccount > div img {
+  max-width: 200px;
+  margin: 2rem 10rem;
+}
+
+select {
+  color: var(--blue);
+  font-size: 2rem;
+  padding: 1rem;
+  border: var(--blue) solid 2px;
+  width: auto;
+  border-radius: 10px;
+  text-align: center;
+}
+
+option {
+  text-align: center;
+}
+
+.DHR__Main-Transfer_Money_sameAccount #Amount {
+  padding: 1rem;
+  width: 50%;
+  margin-left: 25%;
+  border-top: white;
+  border-left: none;
+  border-right: none;
+  border-bottom: 3px var(--blue) solid;
+  margin-top: 1rem;
+  height: 1.5rem;
+  border-radius: 0 1rem;
+  background-color: transparent;
+  color: var(--blue);
+}
+
+.DHR__Main-Transfer_Money_sameAccount #Amount::placeholder {
+  color: var(--blue);
+}
+
+.DHR__Main-Transfer_Money h2 {
+  font-size: 3rem;
+}
+
+.DHR__Main-Transfer_Money_sameAccount #Submit {
+  width: 70%;
+  margin: 1rem 0 1rem 15%;
+  height: 2rem;
+  background: transparent;
+  border: var(--blue) solid 2px;
+  border-radius: 5px;
+  color: var(--blue);
+  transition: all 0.3s;
+}
+
+.DHR__Main-Transfer_Money_sameAccount #Submit:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.DHR__Main-Transfer_Money_sameAccount-ErrorFalse {
+  visibility: hidden;
+  text-align: center;
+  color: var(--blue);
+}
+
+.DHR__Main-Transfer_Money_sameAccount-ErrorTrue {
+  visibility: visible;
+  text-align: center;
+  color: var(--blue);
+}

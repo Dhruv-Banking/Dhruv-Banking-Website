@@ -18,3 +18,8 @@ body {
   --grey: #24252a;
   --white: #edf0f1;
 }
+
+hr {
+  width: 80%;
+  border-bottom: black 2px solid;
+}

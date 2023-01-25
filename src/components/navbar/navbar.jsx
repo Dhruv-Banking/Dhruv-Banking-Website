@@ -25,11 +25,11 @@ export default function Navbar(props) {
             ) {
               return (
                 <>
-                  <Link className="DHB__Header-Nav_Lock" to="/logout">
-                    Logout <i className="fa-solid fa-lock"></i>
-                  </Link>
                   <Link className="DHB__Header-Nav_Lock" to="/profile">
                     Profile
+                  </Link>
+                  <Link className="DHB__Header-Nav_Lock" to="/logout">
+                    Logout <i className="fa-solid fa-lock"></i>
                   </Link>
                 </>
               );

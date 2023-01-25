@@ -2,11 +2,8 @@ import { useEffect } from "react";
 
 import Navbar from "../components/navbar/navbar";
 import MoneyShow from "../components/moneyShow/moneyShow";
+import TransferMoney from "../components/transferMoney/transferMoney";
 import Footer from "../components/footer/footer";
-
-// Images
-import Checkings from "../assets/checkings.png";
-import Savings from "../assets/savings.png";
 
 export default function Profile() {
   useEffect(() => {
@@ -16,7 +13,18 @@ export default function Profile() {
   return (
     <>
       <Navbar />
+      <h1
+        style={{
+          textAlign: "center",
+          marginTop: "60px",
+          textDecoration: "underline",
+        }}
+      >
+        Welcome Back {sessionStorage.getItem("username")}!
+      </h1>
       <MoneyShow />
+      <hr />
+      <TransferMoney />
       <Footer />
     </>
   );

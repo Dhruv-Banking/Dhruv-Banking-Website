@@ -6,8 +6,8 @@ export default function Logout() {
 
   useEffect(() => {
     sessionStorage.clear();
-    navigate("/");
+    navigate("/login");
   });
 
-  return <h2>Successfully logged out!</h2>;
+  return <></>;
 }

@@ -25,9 +25,15 @@
 .DHB__Account_Checkings {
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
     url("../../assets/checkings.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .DHB__Account_Savings {
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
     url("../../assets/savings.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
