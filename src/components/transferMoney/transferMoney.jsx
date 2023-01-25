@@ -1,6 +1,7 @@
 import "./transferMoney.css";
 
 import { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 import Arrow from "../../assets/arrow.png";
 let API_URL = "https://banking-api.dhruvrayat.com/";
@@ -36,6 +37,7 @@ function relodValues() {
 
 export default function TransferMoney() {
   let amount = useRef("");
+  let navigate = useNavigate();
   let [counter, setCounter] = useState(0);
   let [errorData, setErrorData] = useState();
   let [errorClass, setErrorClass] = useState(
@@ -123,7 +125,7 @@ export default function TransferMoney() {
         ) {
           relodValues();
           alert(result.detail);
-          window.location.reload(false);
+          navigate("/profile");
         }
       })
       .catch((error) => console.log("error", error));
@@ -159,7 +161,7 @@ export default function TransferMoney() {
         ) {
           relodValues();
           alert(result.detail);
-          window.location.reload(false);
+          navigate("/profile");
         }
         console.log(result.detail);
         console.log(
