@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import Navbar from "../components/navbar/navbar";
 import MoneyShow from "../components/moneyShow/moneyShow";
 import TransferMoney from "../components/transferMoney/transferMoney";
+import TransferMoneyAnotherUser from "../components/transferMoneyAnotherUser/transferMoneyAnotherUser";
 import Footer from "../components/footer/footer";
 
 export default function Profile() {
@@ -25,6 +26,8 @@ export default function Profile() {
       <MoneyShow />
       <hr />
       <TransferMoney />
+      <hr />
+      <TransferMoneyAnotherUser />
       <Footer />
     </>
   );

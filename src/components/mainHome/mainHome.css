@@ -37,6 +37,8 @@
   position: relative;
   top: -10rem;
   left: -2rem;
+  box-shadow: 0px 1px 10px 0 rgb(14 15 16 / 70%),
+    0 6px 30px 0 rgb(14 15 16 / 19%);
 }
 
 .DHB__Main-Grey2 {
@@ -46,4 +48,6 @@
   position: relative;
   right: -15rem;
   top: 14rem;
+  box-shadow: 0px 1px 10px 0 rgb(14 15 16 / 70%),
+    0 6px 30px 0 rgb(14 15 16 / 19%);
 }
