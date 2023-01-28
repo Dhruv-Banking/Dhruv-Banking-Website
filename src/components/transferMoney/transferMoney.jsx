@@ -6,35 +6,6 @@ import { useNavigate } from "react-router-dom";
 import Arrow from "../../assets/arrow.png";
 let API_URL = "https://banking-api.dhruvrayat.com/";
 
-function relodValues() {
-  var myHeaders = new Headers();
-  myHeaders.append(
-    "Authorization",
-    `Bearer ${sessionStorage.getItem("token")}`
-  );
-
-  var requestOptions = {
-    method: "GET",
-    headers: myHeaders,
-    redirect: "follow",
-  };
-
-  fetch(
-    `${API_URL}dhruvbanking/get/getSpecificUser?username=${sessionStorage.getItem(
-      "username"
-    )}`,
-    requestOptions
-  )
-    .then((response) => response.json())
-    .then((result) => {
-      sessionStorage.setItem("username", result.username);
-      sessionStorage.setItem("checkings", result.checkings);
-      sessionStorage.setItem("savings", result.savings);
-      sessionStorage.setItem("transactions", result.transactions);
-    })
-    .catch((error) => console.log("error", error));
-}
-
 export default function TransferMoney() {
   let amount = useRef("");
   let navigate = useNavigate();
@@ -123,9 +94,7 @@ export default function TransferMoney() {
           result.detail ===
           `Successfully transered ${transferAmount} from checkings to savings`
         ) {
-          relodValues();
           alert(result.detail);
-          navigate("/profile");
         }
       })
       .catch((error) => console.log("error", error));
@@ -159,9 +128,7 @@ export default function TransferMoney() {
           result.detail ===
           `Successfully transered ${transferAmount} from savings to checkings`
         ) {
-          relodValues();
           alert(result.detail);
-          navigate("/profile");
         }
         console.log(result.detail);
         console.log(
