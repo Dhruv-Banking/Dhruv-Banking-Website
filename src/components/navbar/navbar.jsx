@@ -15,7 +15,7 @@ export default function Navbar(props) {
         <li>
           {sessionStorage.getItem("refresh") === null ? (
             <Link to="/register">
-              Register <i class="fa-solid fa-address-card"></i>
+              Register <i className="fa-solid fa-address-card"></i>
             </Link>
           ) : null}
         </li>
@@ -28,7 +28,7 @@ export default function Navbar(props) {
               return (
                 <>
                   <Link className="DHB__Header-Nav_Lock" to="/settings">
-                    Settings <i class="fa-solid fa-gear"></i>
+                    Settings <i className="fa-solid fa-gear"></i>
                   </Link>
                   <Link className="DHB__Header-Nav_Lock" to="/profile">
                     Profile <i className="fa-solid fa-user"></i>
