@@ -50,6 +50,7 @@ export default function RegisterMain() {
       `Bearer ${sessionStorage.getItem("postToken")}`
     );
     myHeaders.append("Content-Type", "application/json");
+
     var raw = JSON.stringify({
       username: data.username,
       firstname: data.firstname,
@@ -89,8 +90,6 @@ export default function RegisterMain() {
             password: password.current.value,
           };
 
-          console.log(userData);
-
           logicfunc(userData);
         }}
       >
@@ -103,6 +102,7 @@ export default function RegisterMain() {
           id="Username"
           placeholder="Enter Username Please"
           ref={username}
+          required
         />
 
         <label htmlFor="Firstname">Firstname</label>
@@ -112,6 +112,7 @@ export default function RegisterMain() {
           id="Firstname"
           placeholder="Enter Firstname Please"
           ref={firstname}
+          required
         />
 
         <label htmlFor="Lastname">Lastname</label>
@@ -121,6 +122,7 @@ export default function RegisterMain() {
           id="Lastname"
           placeholder="Enter Lastname Please"
           ref={lastname}
+          required
         />
 
         <label htmlFor="Email">Email</label>
@@ -130,6 +132,7 @@ export default function RegisterMain() {
           id="Email"
           placeholder="Enter Email Please"
           ref={email}
+          required
         />
 
         <label htmlFor="PhoneNumber">Phone Number</label>
@@ -139,6 +142,7 @@ export default function RegisterMain() {
           id="PhoneNumber"
           placeholder="Enter Phone Number Please"
           ref={phoneNumber}
+          required
         />
 
         <label htmlFor="Password">Password</label>
@@ -148,6 +152,7 @@ export default function RegisterMain() {
           id="Password"
           placeholder="Enter Password Please"
           ref={password}
+          required
           onChange={(e) => {
             let checker = document.getElementById("checkerTag");
 
